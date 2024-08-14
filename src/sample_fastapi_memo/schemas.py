@@ -1,8 +1,11 @@
+from uuid import UUID
 from pydantic import BaseModel, ConfigDict
 
 
-class Memo(BaseModel):
-    id: int
+class InputMemo(BaseModel):
     memo: str
-
     model_config = ConfigDict(from_attributes=True)
+
+
+class Memo(InputMemo):
+    id: UUID
